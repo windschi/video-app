@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
-import VideoServiceAPi from './VideoServiceApi';
 import VideoCard from './VideoCard';
+import {getVideos} from './VideoServiceApi.js';
 import './App.css';
-
-const videoServiceAPi = new VideoServiceAPi();
 
 function App() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    videoServiceAPi.getVideos().then((fetchedVideos) => setVideos(fetchedVideos));
+    getVideos().then((fetchedVideos) => setVideos(fetchedVideos));
   }, []);
 
   return (
